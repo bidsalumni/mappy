@@ -26,17 +26,14 @@
       document.addEventListener('DOMContentLoaded', function() {
         // see how what the example spreadsheet looks like:
         // https://docs.google.com/spreadsheet/lv?key=0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc
-        var URL = "0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc"
+        var URL = "https://docs.google.com/spreadsheets/d/1XvPELy09QE6lhbK6J4LntCNylCmaZC6u4vieBIGw3QM"
         Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
       })
 
       function showInfo(data) {
         // the column headers of the info you want in your popup
-        var optionsJSON = ["placename", "photo-url"]
+        var optionsJSON = ["B", "F"]
         // an html template for your popup
-        var template = "<ul><li><a href='{{photo-url}}' target='_blank'>"
-                     + "<img src='{{photo-url}}'></a></li>"
-                     + "<li><h4>{{placename}}</h4></li></ul>"
         var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
         var map = Sheetsee.loadMap("map")
         // Try different map tiles? examples.map-20v6611k
@@ -45,7 +42,7 @@
         // examples.map-i86nkdio
         // examples.h186knp8
         Sheetsee.addTileLayer(map, 'examples.map-i86nkdio')
-        Sheetsee.addMarkerLayer(geoJSON, map, template)
+        Sheetsee.addMarkerLayer(geoJSON, map)
       }
     </script>
   </body>

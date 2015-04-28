@@ -26,16 +26,16 @@
       document.addEventListener('DOMContentLoaded', function() {
         // see how what the example spreadsheet looks like:
         // https://docs.google.com/spreadsheet/lv?key=0Ao5u1U6KYND7dGN5QngweVJUWE16bTRob0d2a3dCbnc
-        var URL = "1sOSPGDmiWaDg1_nEIHjJF8agaS9ZhVAaPc-r3hBgoMM"
+        var URL = "16ctY6RZ8eVgVRbj-Pi80QPWVeDhFfBaayT1a5IZkNsU"
         Tabletop.init( { key: URL, callback: showInfo, simpleSheet: true } )
       })
 
       function showInfo(data) {
         // the column headers of the info you want in your popup
-        var optionsJSON = ["name", "photo-url"]
+        var optionsJSON = ["name", "photo"]
         // an html template for your popup
-       var template = "<ul><li><a href='{{photo-url}}' target='_blank'>"
-                     + "<img src='{{photo-url}}'></a></li>"
+       var template = "<ul><li><a href='{{photo}}' target='_blank'>"
+                     + "<img src='{{photo}}'></a></li>"
                      + "<li><h4>{{name}}</h4></li></ul>"
         var geoJSON = Sheetsee.createGeoJSON(data, optionsJSON)
         var map = Sheetsee.loadMap("map")
